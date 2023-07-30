@@ -29,7 +29,7 @@ def phi():
 
 
 def e():
-    return calculate_e(10)
+    return calculate_e(900)
 
 
 def pi():

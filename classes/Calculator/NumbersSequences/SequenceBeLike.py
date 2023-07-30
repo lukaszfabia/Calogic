@@ -13,3 +13,7 @@ class SequenceBeLike(ABC):
     @abstractmethod
     def get_range(self, begin, end):
         pass
+
+    @abstractmethod
+    def get_visualisation(self, begin, end, dot_size):
+        pass

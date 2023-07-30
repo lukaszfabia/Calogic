@@ -1,4 +1,7 @@
+import os
 from abc import ABC
+
+from matplotlib import pyplot as plt
 
 from classes.Calculator.NumbersSequences.SequenceBeLike import SequenceBeLike
 
@@ -26,7 +29,19 @@ class FibonacciSequence(SequenceBeLike, ABC):
         result = ' '.join(result_list)
         return result
 
+    def get_visualisation(self, begin, end, dot_size):
+        res = []
+        for i in range(begin, end + 1):
+            res.append(self.get_value(i))
 
-if __name__ == '__main__':
-    fib = FibonacciSequence()
-    print(fib.get_range(3, 10))
+        plt.plot(res)
+        plt.xlabel('the nth term of the sequence')
+        plt.ylabel('values')
+        plt.title('Fibonacci visualization')
+        plt.grid(True)
+
+        plot_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'visualization')
+        os.makedirs(plot_directory, exist_ok=True)
+        plt.savefig(os.path.join(plot_directory, 'fib.png'))
+        plt.show()
+        plt.close()
