@@ -19,7 +19,6 @@ def root(number, deg):
         raise ValueError("You can't calculate even root of negative number or root of 0.")
 
     x0 = number
-    x1 = None
     precision = 1e-10
     max_iterations = 1000
 
