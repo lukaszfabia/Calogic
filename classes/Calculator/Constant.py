@@ -24,6 +24,10 @@ def calculate_phi(limit):
     return result
 
 
+def calculate_phi_quadratic_function():
+    return (1 + 5 ** 0.5) / 2
+
+
 def phi():
     return calculate_phi(1000)
 
