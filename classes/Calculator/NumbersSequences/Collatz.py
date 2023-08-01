@@ -10,6 +10,7 @@ class Collatz:
 
     def make_arr(self):
         num = self.n  # Kopiujemy wartość początkową do zmiennej lokalnej
+        steps = 0
         self.results.append(num)
         while num != 1:
             if num % 2:
@@ -29,10 +30,15 @@ class Collatz:
         plt.grid(True)
         plt.xlabel('Step')
         plt.ylabel('Value')
-        plt.title('Collatz visualization')
+        plt.title('Collatz visualization for n = ' + str(self.n))
 
         plot_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'visualization')
         os.makedirs(plot_directory, exist_ok=True)
         plt.savefig(os.path.join(plot_directory, 'collatz.png'))
         plt.show()
         plt.close()
+
+
+if __name__ == '__main__':
+    collatz = Collatz(27)
+    collatz.print_graph()
