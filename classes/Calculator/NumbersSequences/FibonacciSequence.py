@@ -39,9 +39,14 @@ class FibonacciSequence(SequenceBeLike, ABC):
         plt.ylabel('values')
         plt.title('Fibonacci visualization')
         plt.grid(True)
+        plt.gca().set_facecolor('#002233')
 
         plot_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'visualization')
         os.makedirs(plot_directory, exist_ok=True)
         plt.savefig(os.path.join(plot_directory, 'fib.png'))
         plt.show()
         plt.close()
+
+
+if __name__ == '__main__':
+    FibonacciSequence().get_visualisation(0, 10, 10)
