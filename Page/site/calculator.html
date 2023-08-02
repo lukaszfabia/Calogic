@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <title>Calogic</title>
+</head>
+<body>
+<header>
+    <a href="#" class="title-logo">Calogic</a>
+    <ul class="nav-list">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="calculator.html" class="active">Calculator</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Converter</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div id="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</header>
+
+<section class="main">
+    <div class="main-text">
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+        <button class="primary" value="*">x</button>
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+        <button class="primary" value="/">/</button>
+        <button value="7">7</button>
+        <button value="8">8</button>
+        <button value="9">9</button>
+        <button class="primary" value="+">+</button>
+        <button value="absolute_value">|x|</button>
+        <button value="factorial">n!</button>
+        <button value="inversion">1/x</button>
+        <button class="primary" value="-">-</button>
+        <button>&#8730;x</button>
+        <button><sup>3</sup>&#8730;x</button>
+        <button><sup>n</sup>&#8730;x</button>
+        <button>x<sup>n</sup></button>
+        <button>&lfloor;x&rfloor;</button>
+        <button>&lceil;x&rceil;</button>
+        <button class="next" onclick="change_expressions()">&rarr;</button>
+    </div>
+    <div class="input-wrapper">
+        <label>
+            <input type="text" placeholder="Type here..." name="text" class="input" pattern="[0-9]+">
+        </label>
+        <label>
+            <input type="text" value="output" readonly>
+        </label>
+
+    </div>
+
+</section>
+
+<script src="../js/toggle_menu.js"></script>
+<script src="../js/scripts_to_calculator.js"></script>
+</body>
+</html>
