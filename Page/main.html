@@ -4,34 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-
     <title>Calogic</title>
 </head>
 <body>
 <header>
     <a href="#" class="logo">lukaszfabia.dev</a>
     <ul class="nav-list">
-        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Calculator</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Converter</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Feedback</a></li>
     </ul>
-    <div class="bx bx-menu" id="menu-icon">
-
+    <div id="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
     </div>
 </header>
 
-<section class="img">
-    <div class="img-text">
+<section class="main">
+    <div class="main-text">
         <h4>Calogic</h4>
         <h1>Explore math by creating charts.</h1>
         <p>Not only graphical calculator.</p>
-        <a href="#">Compare</a>
-        <a href="#" class="ctaa"><span class="material-symbols-outlined">code</span>Code</a>
+        <a href="article/AboutCollatz.pdf" target="_blank">New article</a>
+        <a href="https://github.com/lukaszfabia/Calogic" target="_blank" class="cta">Code</a>
     </div>
-    <img src="styles/images/img-main.png" alt="example chart" class="img-chart">
+    <img src="styles/images/img-main.png" alt="example chart" class="main-chart">
 </section>
+
+<script src="js/toggle_menu.js"></script>
 </body>
 </html>
