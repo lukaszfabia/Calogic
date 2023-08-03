@@ -5,3 +5,8 @@ menu.onclick = () => {
     navbar.classList.toggle('open');
 };
 
+function copyToClipboard() {
+    const outputElement = document.getElementById("output_result");
+    outputElement.select();
+    document.execCommand("copy");
+}

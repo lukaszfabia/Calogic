@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <title>Calogic</title>
 </head>
 <body>
 <header>
     <a href="#" class="logo">lukaszfabia.dev</a>
     <ul class="nav-list">
-        <li><a href="main.html" class="active">Home</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="{{ url_for('main_site') }}" class="active">Home</a></li>
+        <li><a href="{{ url_for('calculator') }}">Calculator</a></li>
         <li><a href="#">Functions</a></li>
         <li><a href="#">Converter</a></li>
         <li><a href="#">About</a></li>
@@ -24,16 +24,16 @@
 </header>
 
 <section class="main">
-    <div class="main-text">
+    <div class="main-text animation">
         <h4>Calogic</h4>
         <h1>Explore math by creating charts.</h1>
         <p>Not only graphical calculator.</p>
-        <a href="../article/AboutCollatz.pdf" target="_blank">New article</a>
+        <a href="{{ url_for('static', filename='other/article/AboutCollatz.pdf') }}" target="_blank">New article</a>
         <a href="https://github.com/lukaszfabia/Calogic" target="_blank" class="cta">Code</a>
     </div>
-    <img src="../styles/images/img-main.png" alt="example chart" class="main-chart">
+    <img src="{{ url_for('static', filename='images/img-main.png') }}" alt="example chart" class="main-chart animation">
 </section>
 
-<script src="../js/toggle_menu.js"></script>
+<script src="{{ url_for('static', filename='other/scripts/toggle_menu.js') }}"></script>
 </body>
 </html>

@@ -48,4 +48,4 @@ def factorial(n):
 
 
 def inversion(n):
-    return 1 / n
+    return None if n == 0 else 1 / n

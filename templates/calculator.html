@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>Calogic</title>
+</head>
+<body>
+<header>
+    <a href="#" class="title-logo">Calogic</a>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('main_site') }}">Home</a></li>
+        <li><a href="{{ url_for('calculator') }}" class="active">Calculator</a></li>
+        <li><a href="#">Functions</a></li>
+        <li><a href="#">Converter</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div id="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</header>
+
+<section class="main">
+    <div class="main-text animation">
+        <div class="input-wrapper">
+            <form action="/calculator" method="post">
+                <label for="user_input"><input type="text" id="user_input" name="user_input"
+                                               value="{{ user_input_value }}"
+                                               placeholder="insert an expression..."></label>
+            </form>
+            <label for="output_result"><input type="text" id="output_result" name="output_result" placeholder="result"
+                                              value="{{ output_value }}" disabled></label>
+            <button onclick="copyToClipboard()">Copy</button>
+        </div>
+    </div>
+    <div class="main-help animation">
+        <h1> Help </h1>
+        <h4> accepted expressions</h4>
+        <ul>
+            <li>x!</li>
+            <li>sqrt(x)</li>
+            <li>cbrt(x)</li>
+            <li>floor(x)</li>
+            <li>ceil(x)</li>
+            <li>|x|</li>
+            <li>1/x</li>
+            <li>x^n</li>
+        </ul>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='scripts/toggle_menu.js') }}"></script>
+</body>
+</html>
