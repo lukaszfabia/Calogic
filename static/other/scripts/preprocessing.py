@@ -62,39 +62,40 @@ def preprocess(users_input):
                         int(re.search(n_root_pattern2, users_input).group(3)))
 
     if re.search(pattern_for_sin, users_input):
-        return apprx.sinus(float(re.search(pattern_for_sin, users_input).group(1)), 100)
+        return apprx.sinus(float(re.search(pattern_for_sin, users_input).group(1)), 10)
 
     if re.search(pattern_for_cos, users_input):
-        return apprx.cosinus(float(re.search(pattern_for_cos, users_input).group(1)), 100)
+        return apprx.cosinus(float(re.search(pattern_for_cos, users_input).group(1)), 10)
 
     if re.search(pattern_for_tan, users_input):
-        return apprx.tangens(float(re.search(pattern_for_tan, users_input).group(1)), 100)
+        return apprx.tangens(float(re.search(pattern_for_tan, users_input).group(1)), 10)
 
     if re.search(pattern_for_cot, users_input):
-        return apprx.cotangens(float(re.search(pattern_for_cot, users_input).group(1)), 100)
+        return apprx.cotangens(float(re.search(pattern_for_cot, users_input).group(1)), 10)
 
     if re.search(pattern_for_sec, users_input):
-        return apprx.secans(float(re.search(pattern_for_sec, users_input).group(1)), 100)
+        return apprx.secans(float(re.search(pattern_for_sec, users_input).group(1)), 10)
 
     if re.search(pattern_for_csc, users_input):
-        return apprx.cosecans(float(re.search(pattern_for_csc, users_input).group(1)), 100)
+        return apprx.cosecans(float(re.search(pattern_for_csc, users_input).group(1)), 10)
 
     if re.search(pattern_for_ln, users_input):
-        return apprx.natural_logarithm(float(re.search(pattern_for_ln, users_input).group(1)), 100)
+        return apprx.natural_logarithm(float(re.search(pattern_for_ln, users_input).group(1)), 10)
 
     if re.search(pattern_for_arcsin, users_input):
-        return apprx.arcsinus(float(re.search(pattern_for_arcsin, users_input).group(1)), 100)
+        return apprx.arcsinus(float(re.search(pattern_for_arcsin, users_input).group(1)), 10)
 
     if re.search(pattern_for_arccos, users_input):
-        return apprx.arccosinus(float(re.search(pattern_for_arccos, users_input).group(1)), 100)
+        return apprx.arccosinus(float(re.search(pattern_for_arccos, users_input).group(1)), 10)
 
     if re.search(pattern_for_arctan, users_input):
-        return apprx.arctangens(float(re.search(pattern_for_arctan, users_input).group(1)), 100)
+        return apprx.arctangens(float(re.search(pattern_for_arctan, users_input).group(1)), 10)
 
     if re.search(pattern_for_arccot, users_input):
-        return apprx.arccotangens(float(re.search(pattern_for_arccot, users_input).group(1)), 100)
+        return apprx.arccotangens(float(re.search(pattern_for_arccot, users_input).group(1)), 10)
 
     if re.search(pattern_for_exponent, users_input):
-        return apprx.exponential(float(re.search(pattern_for_exponent, users_input).group(1)), 100)
+        return apprx.exponential(float(re.search(pattern_for_exponent, users_input).group(1)), 10)
     else:
         return "Invalid input."
+
