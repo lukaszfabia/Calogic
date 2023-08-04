@@ -29,11 +29,17 @@
             <form action="/calculator" method="post" id="calculator-form">
                 <label for="user_input"><input type="text" id="user_input" name="user_input"
                                                value="{{ user_input_value }}"
-                                               placeholder="insert an expression..."></label>
+                                               placeholder="insert an expression...">
+                </label>
             </form>
             <label for="output_result"><input type="text" id="output_result" name="output_result" placeholder="result"
-                                              value="{{ output_value }}" disabled></label>
-            <button onclick="copyToClipboard()">copy</button>
+                                              value="{{ output_value }}" disabled>
+                <label class="tooltip">
+                    <button onclick="copyToClipboard()" onmouseout="mouse_out_func_to_copy()">
+                        <span class="tooltip-text" id="myTooltip">copy to clipboard</span>copy
+                    </button>
+                </label>
+            </label>
         </div>
     </div>
     <div class="main-help animation">

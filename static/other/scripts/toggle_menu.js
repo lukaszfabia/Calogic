@@ -6,7 +6,16 @@ menu.onclick = () => {
 };
 
 function copyToClipboard() {
-    const outputElement = document.getElementById("output_result");
-    outputElement.select();
-    document.execCommand("copy");
+    const copyText = document.getElementById("output_result");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+
+    const tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied: " + copyText.value;
+}
+
+function mouse_out_func_to_copy() {
+    const tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copy to clipboard";
 }

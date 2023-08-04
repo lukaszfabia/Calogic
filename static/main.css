@@ -264,7 +264,7 @@ sup {
     border: none;
     padding: 1rem;
     font-size: 1rem;
-    width: 30em;
+    width: 25em;
     border-radius: 1rem;
     color: black;
     box-shadow: 0 0.4rem #166388;
@@ -397,6 +397,21 @@ sup {
 
 }
 
+@media(max-width: 400px){
+     .input-wrapper input {
+        width: 20em;
+    }
+
+    .main-help{
+        width: 250px;
+        height: auto;
+    }
+
+    button{
+        margin-left: 125px;
+    }
+}
+
 @keyframes fadeIn-2 {
     0% {
         opacity: 0;
@@ -410,4 +425,43 @@ sup {
 
 .animation {
     animation: fadeIn-2 2s ease-in-out;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
