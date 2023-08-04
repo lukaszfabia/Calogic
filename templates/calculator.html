@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <title>Calogic</title>
 </head>
 <body>
 <header>
-    <a href="#" class="title-logo">Calogic</a>
+    <a href="{{ url_for('main_site') }}" class="title-logo">Calogic</a>
     <ul class="nav-list">
         <li><a href="{{ url_for('main_site') }}">Home</a></li>
         <li><a href="{{ url_for('calculator') }}" class="active">Calculator</a></li>
@@ -26,14 +26,14 @@
 <section class="main">
     <div class="main-text animation">
         <div class="input-wrapper">
-            <form action="/calculator" method="post">
+            <form action="/calculator" method="post" id="calculator-form">
                 <label for="user_input"><input type="text" id="user_input" name="user_input"
                                                value="{{ user_input_value }}"
                                                placeholder="insert an expression..."></label>
             </form>
             <label for="output_result"><input type="text" id="output_result" name="output_result" placeholder="result"
                                               value="{{ output_value }}" disabled></label>
-            <button onclick="copyToClipboard()">Copy</button>
+            <button onclick="copyToClipboard()">copy</button>
         </div>
     </div>
     <div class="main-help animation">
@@ -52,6 +52,8 @@
     </div>
 </section>
 
-<script src="{{ url_for('static', filename='scripts/toggle_menu.js') }}"></script>
+<script src="{{ url_for('static', filename='other/scripts/toggle_menu.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='other/scripts/ajax_script.js') }}"></script>
 </body>
 </html>

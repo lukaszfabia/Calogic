@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import static.other.scripts.preprocessing as prep
 
 app = Flask(__name__)
@@ -17,6 +17,8 @@ def calculator():
         user_input = request.form.get('user_input')
         print(f"User inserted: {user_input}")
         output_value = prep.preprocess(user_input)
+
+        return jsonify(output_value=output_value)
 
     return render_template("calculator.html", output_value=output_value, user_input=user_input)
 
