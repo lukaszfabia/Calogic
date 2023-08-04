@@ -15,12 +15,12 @@ def cosinus(arg, limit):
     return res
 
 
-def tanges(arg, limit):
+def tangens(arg, limit):
     return sinus(arg, limit) / cosinus(arg, limit)
 
 
-def cotanges(arg, limit):
-    return inversion(tanges(arg, limit))
+def cotangens(arg, limit):
+    return inversion(tangens(arg, limit))
 
 
 def secans(arg, limit):
@@ -31,19 +31,19 @@ def cosecans(arg, limit):
     return inversion(sinus(arg, limit))
 
 
-def arcsinus(arg):
+def arcsinus(arg, limit):
     return 0
 
 
-def arccosinus(arg):
+def arccosinus(arg, limit):
     return 0
 
 
-def arctanges(arg):
+def arctangens(arg, limit):
     return 0
 
 
-def arccotangens(arg):
+def arccotangens(arg, limit):
     return 0
 
 

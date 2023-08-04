@@ -159,7 +159,7 @@ section {
 
 .main-help {
     width: 400px;
-    height: 400px;
+    height: 420px;
     margin-left: 50px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(30px);
