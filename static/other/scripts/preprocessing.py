@@ -2,100 +2,79 @@ import re
 import classes.Calculator.Other as oth
 import classes.Calculator.Approximations as apprx
 
+limit = 30
+
+patterns = {
+    'factorial_pattern': r"([+]?\d*)!",
+    'power_pattern': r"([+]?\d*)\^([+]?\d*)",
+    'square_root_pattern': r"sqrt\((\d+(\.\d+)?)\)",
+    'absolute_value_pattern': r"\|(-?\d+(\.\d+)?)\|",
+    'cube_root_pattern': r"cbrt\((-?\d+(\.\d+)?)\)",
+    'inversion_pattern': r"1/(-?\d+(\.\d+)?)",
+    'floor_pattern': r"floor\((-?\d+(\.\d+)?)\)",
+    'ceil_pattern': r"ceil\((-?\d+(\.\d+)?)\)",
+    'n_root_pattern': r"nrt\((-?\d+(\.\d+)?), (\d+(\.\d+)?)\)",
+    'sin_pattern': r"sin\((-?\d+(\.\d+)?)\)",
+    'cos_pattern': r"cos\((-?\d+(\.\d+)?)\)",
+    'tan_pattern': r"tan\((-?\d+(\.\d+)?)\)",
+    'cot_pattern': r"cot\((-?\d+(\.\d+)?)\)",
+    'sec_pattern': r"sec\((-?\d+(\.\d+)?)\)",
+    'csc_pattern': r"csc\((-?\d+(\.\d+)?)\)",
+    'ln_pattern': r"ln\((-?\d+(\.\d+)?)\)",
+    'arcsin_pattern': r"arcsin\((-?\d+(\.\d+)?)\)",
+    'arccos_pattern': r"arccos\((-?\d+(\.\d+)?)\)",
+    'arctan_pattern': r"arctan\((-?\d+(\.\d+)?)\)",
+    'arccot_pattern': r"arccot\((-?\d+(\.\d+)?)\)",
+    'exp_pattern': r"e\^(-?\d*)"
+}
+
 
 def preprocess(users_input):
-    factorial_pattern = r"([+]?\d*)!"  # pattern for factorial
-    power_pattern = r"([+]?\d*)\^([+]?\d*)"  # pattern for power
-    square_root_pattern = r"sqrt\((\d+(\.\d+)?)\)"  # pattern for square root
-    absolute_value_pattern = r"\|(-?\d+(\.\d+)?)\|"  # pattern for absolute value
-    cube_root_pattern = r"cbrt\((-?\d+(\.\d+)?)\)"  # pattern for cube root
-    inversion_pattern = r"1/(-?\d+(\.\d+)?)"  # pattern for inversion
-    floor_pattern = r"floor\((-?\d+(\.\d+)?)\)"  # pattern for floor
-    ceil_pattern = r"ceil\((-?\d+(\.\d+)?)\)"  # pattern for ceil
-    n_root_pattern1 = r"nrt\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)"  # pattern for n root
-    n_root_pattern2 = r"nrt\((-?\d+(\.\d+)?), (\d+(\.\d+)?)\)"  # pattern for n root
+    for pattern_name, pattern in patterns.items():
+        match = re.fullmatch(pattern, users_input)
+        if match:
+            if pattern_name == 'factorial_pattern':
+                return oth.factorial(int(match.group(1)))
+            elif pattern_name == 'power_pattern':
+                return oth.power(int(match.group(1)), int(match.group(2)))
+            elif pattern_name == 'square_root_pattern':
+                return oth.square_root(int(match.group(1)))
+            elif pattern_name == 'absolute_value_pattern':
+                return oth.absolute_value(float(match.group(1)))
+            elif pattern_name == 'cube_root_pattern':
+                return oth.cube_root(int(match.group(1)))
+            elif pattern_name == 'inversion_pattern':
+                return oth.inversion(float(match.group(1)))
+            elif pattern_name == 'floor_pattern':
+                return oth.floor(float(match.group(1)))
+            elif pattern_name == 'ceil_pattern':
+                return oth.ceil(float(match.group(1)))
+            elif pattern_name == 'n_root_pattern':
+                return oth.root(float(match.group(1)), int(match.group(3)))
+            elif pattern_name == 'sin_pattern':
+                return apprx.sinus(float(match.group(1)), limit)
+            elif pattern_name == 'cos_pattern':
+                return apprx.cosinus(float(match.group(1)), limit)
+            elif pattern_name == 'tan_pattern':
+                return apprx.tangens(float(match.group(1)), limit)
+            elif pattern_name == 'cot_pattern':
+                return apprx.cotangens(float(match.group(1)), limit)
+            elif pattern_name == 'sec_pattern':
+                return apprx.secans(float(match.group(1)), limit)
+            elif pattern_name == 'csc_pattern':
+                return apprx.cosecans(float(match.group(1)), limit)
+            elif pattern_name == 'ln_pattern':
+                return apprx.natural_logarithm(float(match.group(1)), limit)
+            elif pattern_name == 'arcsin_pattern':
+                return apprx.arcsinus(float(match.group(1)), limit)
+            elif pattern_name == 'arccos_pattern':
+                return apprx.arccosinus(float(match.group(1)), limit)
+            elif pattern_name == 'arctan_pattern':
+                return apprx.arctangens(float(match.group(1)), limit)
+            elif pattern_name == 'arccot_pattern':
+                return apprx.arccotangens(float(match.group(1)), limit)
+            elif pattern_name == 'exp_pattern':
+                return apprx.exponential(float(match.group(1)), 15)
 
-    pattern_for_sin = r"sin\((-?\d+(\.\d+)?)\)"  # pattern for sin
-    pattern_for_cos = r"cos\((-?\d+(\.\d+)?)\)"  # pattern for cos
-    pattern_for_tan = r"tan\((-?\d+(\.\d+)?)\)"  # pattern for tan
-    pattern_for_cot = r"cot\((-?\d+(\.\d+)?)\)"  # pattern for cot
-    pattern_for_sec = r"sec\((-?\d+(\.\d+)?)\)"  # pattern for sec
-    pattern_for_csc = r"csc\((-?\d+(\.\d+)?)\)"  # pattern for csc
-    pattern_for_ln = r"ln\((-?\d+(\.\d+)?)\)"  # pattern for ln
-    pattern_for_arcsin = r"arcsin\((-?\d+(\.\d+)?)\)"  # pattern for arcsin
-    pattern_for_arccos = r"arccos\((-?\d+(\.\d+)?)\)"  # pattern for arccos
-    pattern_for_arctan = r"arctan\((-?\d+(\.\d+)?)\)"  # pattern for arctan
-    pattern_for_arccot = r"arccot\((-?\d+(\.\d+)?)\)"  # pattern for arccot
-    pattern_for_exponent = r"e\^(-?\d+(\.\d+)?)"  # pattern for exponent
-
-    if re.search(factorial_pattern, users_input):
-        return oth.factorial(int(re.search(factorial_pattern, users_input).group(1)))
-
-    if re.search(power_pattern, users_input):
-        return (oth.power(int(re.search(power_pattern, users_input).group(1)),
-                          int(re.search(power_pattern, users_input).group(2))))
-
-    if re.search(square_root_pattern, users_input):
-        return oth.square_root(int(re.search(square_root_pattern, users_input).group(1)))
-
-    if re.search(absolute_value_pattern, users_input):
-        return oth.absolute_value(float(re.search(absolute_value_pattern, users_input).group(1)))
-
-    if re.search(cube_root_pattern, users_input):
-        return oth.cube_root(int(re.search(cube_root_pattern, users_input).group(1)))
-
-    if re.search(inversion_pattern, users_input):
-        return oth.inversion(float(re.search(inversion_pattern, users_input).group(1)))
-
-    if re.search(floor_pattern, users_input):
-        return oth.floor(float(re.search(floor_pattern, users_input).group(1)))
-
-    if re.search(ceil_pattern, users_input):
-        return oth.ceil(float(re.search(ceil_pattern, users_input).group(1)))
-
-    if re.search(n_root_pattern1, users_input):
-        return oth.root(float(re.search(n_root_pattern1, users_input).group(1)),
-                        int(re.search(n_root_pattern1, users_input).group(3)))
-
-    if re.search(n_root_pattern2, users_input):
-        return oth.root(float(re.search(n_root_pattern2, users_input).group(1)),
-                        int(re.search(n_root_pattern2, users_input).group(3)))
-
-    if re.search(pattern_for_sin, users_input):
-        return apprx.sinus(float(re.search(pattern_for_sin, users_input).group(1)), 10)
-
-    if re.search(pattern_for_cos, users_input):
-        return apprx.cosinus(float(re.search(pattern_for_cos, users_input).group(1)), 10)
-
-    if re.search(pattern_for_tan, users_input):
-        return apprx.tangens(float(re.search(pattern_for_tan, users_input).group(1)), 10)
-
-    if re.search(pattern_for_cot, users_input):
-        return apprx.cotangens(float(re.search(pattern_for_cot, users_input).group(1)), 10)
-
-    if re.search(pattern_for_sec, users_input):
-        return apprx.secans(float(re.search(pattern_for_sec, users_input).group(1)), 10)
-
-    if re.search(pattern_for_csc, users_input):
-        return apprx.cosecans(float(re.search(pattern_for_csc, users_input).group(1)), 10)
-
-    if re.search(pattern_for_ln, users_input):
-        return apprx.natural_logarithm(float(re.search(pattern_for_ln, users_input).group(1)), 10)
-
-    if re.search(pattern_for_arcsin, users_input):
-        return apprx.arcsinus(float(re.search(pattern_for_arcsin, users_input).group(1)), 10)
-
-    if re.search(pattern_for_arccos, users_input):
-        return apprx.arccosinus(float(re.search(pattern_for_arccos, users_input).group(1)), 10)
-
-    if re.search(pattern_for_arctan, users_input):
-        return apprx.arctangens(float(re.search(pattern_for_arctan, users_input).group(1)), 10)
-
-    if re.search(pattern_for_arccot, users_input):
-        return apprx.arccotangens(float(re.search(pattern_for_arccot, users_input).group(1)), 10)
-
-    if re.search(pattern_for_exponent, users_input):
-        return apprx.exponential(float(re.search(pattern_for_exponent, users_input).group(1)), 10)
-    else:
-        return "Invalid input."
+    return "Invalid input."
 
