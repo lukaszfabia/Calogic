@@ -19,3 +19,8 @@ function mouse_out_func_to_copy() {
     const tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Copy to clipboard";
 }
+
+function insert(expression) {
+    let input = document.getElementById('user_input');
+    input.value = expression;
+}
