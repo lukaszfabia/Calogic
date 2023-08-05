@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>Calogic</title>
+</head>
+<body>
+<header>
+    <a href="#" class="title-logo">Calogic</a>
+    <ul class="nav-list">
+        <li><a href="{{ url_for('main_site') }}">Home</a></li>
+        <li><a href="{{ url_for('calculator') }}">Calculator</a></li>
+        <li><a href="{{ url_for('functions') }}">Functions</a></li>
+        <li><a href="{{ url_for('converter') }}">Converter</a></li>
+        <li><a href="{{ url_for('documentation') }}" class="active">Documentation</a></li>
+    </ul>
+    <div id="menu-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</header>
+<div class="documentation-container animation">
+    <div class="title-logo">Documentation of Calculator</div>
+    <table>
+        <tr>
+            <th>Expression</th>
+            <th>Accepted expression</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>factorial</td>
+            <td>x!</td>
+            <td>factorial of a number</td>
+        </tr>
+        <tr>
+            <td>square root</td>
+            <td>sqrt(x)</td>
+            <td>square root of a number</td>
+        </tr>
+        <tr>
+            <td>cube root</td>
+            <td>cbrt(x)</td>
+            <td>cube root of a number</td>
+        </tr>
+        <tr>
+            <td>floor</td>
+            <td>floor(x)</td>
+            <td>integer part of a number</td>
+        </tr>
+        <tr>
+            <td>ceil</td>
+            <td>ceil(x)</td>
+            <td>round-up of a number</td>
+        </tr>
+        <tr>
+            <td>absolute value</td>
+            <td>|x|</td>
+            <td>absolute value of a number</td>
+        </tr>
+        <tr>
+            <td>inversion</td>
+            <td>1/x</td>
+            <td>inversion of a number</td>
+        </tr>
+        <tr>
+            <td>natural logarithm</td>
+            <td>ln(x)</td>
+
+            <td>natural logarithm of a number</td>
+        </tr>
+        <tr>
+            <td>logarithm with base</td>
+            <td>log(x, y)</td>
+            <td>logarithm of a number where x is a base of log</td>
+        </tr>
+        <tr>
+            <td>n-root</td>
+            <td>nrt(x,y)</td>
+            <td>root of y, degree x</td>
+        </tr>
+        <tr>
+            <td>sinus</td>
+            <td>sin(x)</td>
+            <td>sinus of a number</td>
+        </tr>
+        <tr>
+            <td>cosinus</td>
+            <td>cos(x)</td>
+            <td>cosinus of a number</td>
+        </tr>
+        <tr>
+            <td>tangens</td>
+            <td>tan(x)</td>
+            <td>tangens of a number</td>
+        </tr>
+        <tr>
+            <td>cotangens</td>
+            <td>cot(x)</td>
+            <td>cotangens of a number</td>
+        </tr>
+        <tr>
+            <td>secans</td>
+            <td>sec(x)</td>
+            <td>secans of a number</td>
+        </tr>
+        <tr>
+            <td>cosecans</td>
+            <td>csc(x)</td>
+            <td>cosecans of a number</td>
+        </tr>
+        <tr>
+            <td>arcsinus</td>
+            <td>arcsin(x)</td>
+            <td>arcsinus of a number</td>
+        </tr>
+        <tr>
+            <td>arccosinus</td>
+            <td>arccos(x)</td>
+            <td>arccosinus of a number</td>
+        </tr>
+        <tr>
+            <td>arctangens</td>
+            <td>arctan(x)</td>
+            <td>arctangens of a number</td>
+        </tr>
+        <tr>
+            <td>arccotangens</td>
+            <td>arccot(x)</td>
+            <td>arccotangens of a number</td>
+        </tr>
+        <tr>
+            <td>exponential</td>
+            <td>e^x</td>
+            <td>takes exponent of x</td>
+        </tr>
+        <tr>
+            <td>power</td>
+            <td>x^y</td>
+            <td>power of x, degree y</td>
+        </tr>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='other/scripts/toggle_menu.js') }}"></script>
+</body>
+</html>

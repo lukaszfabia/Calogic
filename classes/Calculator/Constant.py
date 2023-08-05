@@ -29,7 +29,7 @@ def calculate_phi_quadratic_function():
 
 
 def phi():
-    return calculate_phi(1000)
+    return calculate_phi_quadratic_function()
 
 
 def e():

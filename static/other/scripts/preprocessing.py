@@ -13,7 +13,7 @@ patterns = {
     'inversion_pattern': r"1/(-?\d+(\.\d+)?)",
     'floor_pattern': r"floor\((-?\d+(\.\d+)?)\)",
     'ceil_pattern': r"ceil\((-?\d+(\.\d+)?)\)",
-    'n_root_pattern': r"nrt\((-?\d+(\.\d+)?), (\d+(\.\d+)?)\)",
+    'n_root_pattern': r"nrt\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)",
     'sin_pattern': r"sin\((-?\d+(\.\d+)?)\)",
     'cos_pattern': r"cos\((-?\d+(\.\d+)?)\)",
     'tan_pattern': r"tan\((-?\d+(\.\d+)?)\)",
@@ -25,7 +25,8 @@ patterns = {
     'arccos_pattern': r"arccos\((-?\d+(\.\d+)?)\)",
     'arctan_pattern': r"arctan\((-?\d+(\.\d+)?)\)",
     'arccot_pattern': r"arccot\((-?\d+(\.\d+)?)\)",
-    'exp_pattern': r"e\^(-?\d*)"
+    'exp_pattern': r"e\^(-?\d*)",
+    'log_pattern': r"log\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)",
 }
 
 
@@ -64,7 +65,7 @@ def preprocess(users_input):
             elif pattern_name == 'csc_pattern':
                 return apprx.cosecans(float(match.group(1)), limit)
             elif pattern_name == 'ln_pattern':
-                return apprx.natural_logarithm(float(match.group(1)), limit)
+                return apprx.natural_logarithm(float(match.group(1)))
             elif pattern_name == 'arcsin_pattern':
                 return apprx.arcsinus(float(match.group(1)), limit)
             elif pattern_name == 'arccos_pattern':
@@ -74,7 +75,8 @@ def preprocess(users_input):
             elif pattern_name == 'arccot_pattern':
                 return apprx.arccotangens(float(match.group(1)), limit)
             elif pattern_name == 'exp_pattern':
-                return apprx.exponential(float(match.group(1)), 15)
+                return apprx.exponential(float(match.group(1)), limit)
+            elif pattern_name == 'log_pattern':
+                return apprx.logarithm(float(match.group(1)), float(match.group(3)))
 
     return "Invalid input."
-

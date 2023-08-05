@@ -12,9 +12,9 @@
     <ul class="nav-list">
         <li><a href="{{ url_for('main_site') }}">Home</a></li>
         <li><a href="{{ url_for('calculator') }}" class="active">Calculator</a></li>
-        <li><a href="#">Functions</a></li>
-        <li><a href="#">Converter</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="{{ url_for('functions') }}">Functions</a></li>
+        <li><a href="{{ url_for('converter') }}">Converter</a></li>
+        <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
     </ul>
     <div id="menu-icon">
         <div class="line"></div>

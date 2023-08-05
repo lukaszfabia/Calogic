@@ -16,7 +16,7 @@ def cube_root(n):
 
 def root(number, deg):
     if (number < 0 and deg % 2 == 0) or deg == 0:
-        raise ValueError("You can't calculate even root of negative number or root of 0.")
+        return "You can't calculate even root of negative number or root of 0."
 
     x0 = number
     precision = 1e-10
@@ -28,7 +28,7 @@ def root(number, deg):
             return x1
         x0 = x1
 
-    raise ValueError("Can't calculate root.")
+    return "Can't calculate root."
 
 
 def absolute_value(n):

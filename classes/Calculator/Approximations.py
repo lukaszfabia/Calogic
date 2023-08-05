@@ -1,4 +1,6 @@
-from classes.Calculator.Other import power, factorial, inversion
+from math import log
+
+from classes.Calculator.Other import power, factorial, inversion, square_root
 import classes.Calculator.Constant as const
 
 
@@ -70,7 +72,11 @@ def arccotangens(arg, limit):
 
 
 def natural_logarithm(arg):
-    return 0
+    return log(arg)
+
+
+def logarithm(base, arg):
+    return natural_logarithm(arg) / natural_logarithm(base)
 
 
 def exponential(arg, limit):
@@ -78,3 +84,7 @@ def exponential(arg, limit):
     for i in range(limit):
         res += power(arg, i) / factorial(i)
     return res
+
+
+if __name__ == '__main__':
+    print(logarithm(2, 2))
