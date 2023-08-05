@@ -9,7 +9,7 @@ function copyToClipboard() {
     const copyText = document.getElementById("output_result");
     copyText.select();
     copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(copyText.value).then(r => console.log(r));
 
     const tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Copied: " + copyText.value;
