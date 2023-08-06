@@ -32,19 +32,22 @@
                                                value="{{ user_input_value }}"
                                                placeholder="insert an expression...">
                 </label>
+                <div class="submit-button">
+                    <label class="tooltip">
+                        <button id="submit_button" type="submit" value="Submit" onclick="show_content()">
+                            <span class="tooltip-text" id="myTooltip">submit expression</span>submit
+                        </button>
+                    </label>
+                </div>
             </form>
+
             <label for="output_result"><input type="text" id="output_result" name="output_result" placeholder="result"
                                               value="{{ output_value }}" disabled>
-                <label class="tooltip">
-                    <button onclick="copyToClipboard()" onmouseout="mouse_out_func_to_copy()">
-                        <span class="tooltip-text" id="myTooltip">copy to clipboard</span>copy
-                    </button>
-                </label>
             </label>
         </div>
     </div>
     <div class="main-help animation">
-        <h4>Operations</h4>
+        <h4>Available operations</h4>
         <p>click on the chosen operation</p>
         <label class="tooltip">
             <button onclick="insert('sin()')"><span class="tooltip-text">insert sin(x)</span>sin(x)
@@ -127,7 +130,7 @@
             </button>
         </label>
         <label class="tooltip">
-            <button onclick="insert('log(base, x)')"><span class="tooltip-text">insert log(base, x)</span>log(base, x)
+            <button onclick="insert('log(a,b)')"><span class="tooltip-text">insert log(a,b)</span>log(a,b)
             </button>
         </label>
         <label class="tooltip">

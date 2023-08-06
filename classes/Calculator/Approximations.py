@@ -76,7 +76,7 @@ def natural_logarithm(arg):
 
 
 def logarithm(base, arg):
-    return natural_logarithm(arg) / natural_logarithm(base)
+    return 'wrong base' if base == 1 or base == 0 else natural_logarithm(arg) / natural_logarithm(base)
 
 
 def exponential(arg, limit):

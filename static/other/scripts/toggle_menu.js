@@ -5,22 +5,29 @@ menu.onclick = () => {
     navbar.classList.toggle('open');
 };
 
-function copyToClipboard() {
-    const copyText = document.getElementById("output_result");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value).then(r => console.log(r));
-
-    const tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copied: " + copyText.value;
-}
-
-function mouse_out_func_to_copy() {
-    const tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copy to clipboard";
-}
 
 function insert(expression) {
     let input = document.getElementById('user_input');
-    input.value = expression;
+    if (expression.includes('()') && !input.value.includes(',')) {
+        // it works for all functions with ()
+        input.value = expression.substring(0, expression.length - 1) + input.value + ')';
+    } else if (expression === 'x!') {
+        input.value = input.value + '!';
+    } else if (expression === '||') {
+        input.value = `|${input.value}|`;
+    } else if (input.value.includes(',') && !expression.includes('()')) {
+        let parts = input.value.split(',');
+        input.value = expression.substring(0, expression.length - 4) + parts[0] + ',' + parts[1] + ')';
+    } else if (expression.includes('e^')) {
+        input.value = expression + input.value;
+    } else {
+        input.value = expression;
+    }
+
+}
+
+function show_content() {
+    const tool = document.getElementById('myTooltip');
+    const res = document.getElementById('user_input').value;
+    tool.innerHTML = 'submitted: ' + res;
 }
