@@ -31,3 +31,11 @@ function show_content() {
     const res = document.getElementById('user_input').value;
     tool.innerHTML = 'submitted: ' + res;
 }
+
+function clear_content() {
+    const inputField = document.getElementById('user_input');
+    const clearLabel = document.getElementById('clear');
+    let res = inputField.value;
+    inputField.value = '';
+    clearLabel.innerHTML = 'cleared: ' + res;
+}

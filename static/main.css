@@ -134,27 +134,19 @@ section {
 }
 
 .submit-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Add this line to center the buttons horizontally */
-    margin-bottom: 50px;
-}
-
-.submit-button button {
-    width: 25em;
-    cursor: pointer;
+    margin-left: 110px;
+    margin-bottom: 40px;
 }
 
 
-.main-text a.cta {
+.main-text a.cta, button.cta {
     background: transparent;
     border: 1px solid white;
     color: white;
     margin-left: 20px;
 }
 
-.main-text a.cta:hover {
+.main-text a.cta:hover, button.cta:hover {
     background: #014060;
     border: 1px solid transparent;
     transform: translate(8px);
@@ -302,14 +294,7 @@ sup {
 
     .submit-button {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        margin-bottom: 50px;
-    }
-
-    .submit-button button{
-        width: 20em;
+        margin-left: 38%;
     }
 
 
@@ -365,7 +350,16 @@ sup {
     }
 
     .input-wrapper input {
-        width: 25em;
+        width: 20em;
+    }
+
+    .main-help {
+        width: 300px;
+        height: auto;
+    }
+
+    .submit-button{
+        margin-left: 19%;
     }
 }
 
@@ -381,8 +375,9 @@ sup {
         height: auto;
     }
 
-    .submit-button button{
-        width: 15em;
+    .submit-button {
+        display: flex;
+        margin-left: 16%;
     }
 }
 

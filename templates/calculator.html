@@ -26,6 +26,7 @@
 
 <section class="main">
     <div class="main-text animation">
+        <br><br>
         <div class="input-wrapper">
             <form action="/calculator" method="post" id="calculator-form">
                 <label for="user_input"><input type="text" id="user_input" name="user_input"
@@ -33,11 +34,16 @@
                                                placeholder="insert an expression...">
                 </label>
                 <div class="submit-button">
-                    <label class="tooltip">
-                        <button id="submit_button" type="submit" value="Submit" onclick="show_content()">
-                            <span class="tooltip-text" id="myTooltip">submit expression</span>submit
-                        </button>
-                    </label>
+                <label class="tooltip">
+                    <button id="submit_button" type="submit" value="Submit" onclick="show_content()">
+                        <span class="tooltip-text" id="myTooltip">submit expression</span>submit
+                    </button>
+                </label>
+                <label class="tooltip">
+                    <button id="clear_button" type="reset" onclick="clear_content()" class="cta">
+                        <span class="tooltip-text" id="clear">clear input</span>clear
+                    </button>
+                </label>
                 </div>
             </form>
 
@@ -70,7 +76,7 @@
             </button>
         </label>
         <label class="tooltip">
-            <button onclick="insert('csc()')"><span class="tooltip-text">insert cscx(x)</span>cscx(x)
+            <button onclick="insert('csc()')"><span class="tooltip-text">insert csc(x)</span>csc(x)
             </button>
         </label>
         <label class="tooltip">
@@ -134,7 +140,7 @@
             </button>
         </label>
         <label class="tooltip">
-            <button onclick="insert('||')"><span class="tooltip-text">insert ||</span>|x|
+            <button onclick="insert('||')"><span class="tooltip-text">insert | |</span>| x |
             </button>
         </label>
     </div>
