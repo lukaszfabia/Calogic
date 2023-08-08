@@ -94,6 +94,15 @@ section {
     padding: 0 19%;
 }
 
+.main-input{
+    width: 500px;
+    height: 60%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(30px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+}
+
 .main-text h5 {
     font-size: 18px;
     font-weight: 300;
@@ -267,16 +276,16 @@ sup {
         transition: .2s;
     }
 
-    .main-text {
+    .main-text, .main-input {
         padding-top: 115px;
     }
 
-    .main-chart .main-help {
+    .main-chart, .main-help, .main-input {
         text-align: center;
         margin-left: 140px;
     }
 
-    .main-help {
+    .main-help, .main-input {
         margin-bottom: 50px;
         margin-left: 300px;
     }
