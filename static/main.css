@@ -94,13 +94,18 @@ section {
     padding: 0 19%;
 }
 
-.main-input{
+.main-input {
+    display: flex;
     width: 500px;
-    height: 60%;
+    height: 400px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(30px);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 50px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .main-text h5 {
@@ -276,16 +281,22 @@ sup {
         transition: .2s;
     }
 
-    .main-text, .main-input {
+    .main-text {
         padding-top: 115px;
     }
 
-    .main-chart, .main-help, .main-input {
+    .main-chart, .main-help {
         text-align: center;
         margin-left: 140px;
     }
 
-    .main-help, .main-input {
+    .main-help {
+        margin-bottom: 50px;
+        margin-left: 300px;
+    }
+
+    .main-input {
+        margin-top: 150px;
         margin-bottom: 50px;
         margin-left: 300px;
     }
@@ -301,11 +312,6 @@ sup {
         grid-template-columns: 1fr;
     }
 
-    .submit-button {
-        display: flex;
-        margin-left: 38%;
-    }
-
 
 }
 
@@ -314,12 +320,6 @@ sup {
         margin-left: 0;
         width: 300px;
         height: auto;
-    }
-
-    .main-help {
-        width: 500px;
-        height: auto;
-        margin: auto auto 50px;
     }
 
     .main-help:hover {
@@ -359,20 +359,29 @@ sup {
     }
 
     .input-wrapper input {
-        width: 20em;
+        width: 25em;
     }
 
     .main-help {
-        width: 300px;
-        height: auto;
+        width: 500px;
+        height: 550px;
+        margin: auto auto 100px;
+    }
+
+    .main-input {
+        display: flex;
+        margin: 100px auto 50px;
+        width: 500px;
     }
 
     .submit-button{
-        margin-left: 19%;
+        display: flex;
+        margin-left: 15%;
     }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     .input-wrapper input {
         display: flex;
         width: 20em;
@@ -388,6 +397,13 @@ sup {
         display: flex;
         margin-left: 16%;
     }
+
+    .main-input {
+        display: flex;
+        margin: 100px auto auto;
+        width: 360px;
+    }
+
 }
 
 @keyframes fadeIn-2 {
