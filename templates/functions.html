@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <title>Calogic</title>
 </head>
 <body>
 <header>
-    <a href="#" class="title-logo">Calogic</a>
+    <a href="{{ url_for('main_site') }}" class="title-logo">Calogic</a>
     <ul class="nav-list">
         <li><a href="{{ url_for('main_site') }}">Home</a></li>
         <li><a href="{{ url_for('calculator') }}">Calculator</a></li>
         <li><a href="{{ url_for('functions') }}" class="active">Functions</a></li>
         <li><a href="{{ url_for('converter') }}">Converter</a></li>
+        <li><a href="#">Sequences</a></li>
         <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
     </ul>
     <div id="menu-icon">
@@ -22,7 +24,42 @@
         <div class="line"></div>
     </div>
 </header>
-FUNCTIONS
+
+<section class="main">
+    <div class="main-input animation">
+        <div class="input-wrapper">
+            <form action="/calculator" method="post" id="calculator-form">
+                <label for="user_input"><input type="text" id="user_input" name="user_input"
+                                               value="{{ user_input_value }}"
+                                               placeholder="insert an function...">
+                </label>
+                <div class="submit-button">
+                    <label class="tooltip">
+                        <button id="submit_button" type="submit" value="Submit" onclick="show_content()">
+                            <span class="tooltip-text" id="myTooltip">submit expression</span>submit
+                        </button>
+                    </label>
+                    <label class="tooltip">
+                        <button id="clear_button" type="reset" onclick="clear_content()" class="cta">
+                            <span class="tooltip-text" id="clear">clear input</span>clear
+                        </button>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="main-help animation">
+        <h4>Generated chart</h4>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='plots/generated_plot.png') }}" alt="chart">
+        </div>
+    </div>
+
+
+</section>
+
 <script src="{{ url_for('static', filename='other/scripts/toggle_menu.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='other/scripts/ajax_script.js') }}"></script>
 </body>
 </html>

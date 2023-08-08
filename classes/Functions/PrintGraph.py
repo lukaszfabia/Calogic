@@ -31,7 +31,7 @@ def generate_plot(function_str):
     plt.ylabel('y')
     plt.title('f(x)=' + function_str)
     plt.grid(True)
-    plot_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'plots')
+    plot_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../static/plots')
 
     # Create the directory if it doesn't exist
     os.makedirs(plot_directory, exist_ok=True)
