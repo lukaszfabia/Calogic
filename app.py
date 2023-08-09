@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import static.other.scripts.preprocessing as prep
+import static.other.scripts.sketch_function as sketch
 
 app = Flask(__name__)
 
@@ -28,8 +29,13 @@ def calculator():
     return render_template("calculator.html", output_value=output_value, user_input=user_input)
 
 
-@app.route("/functions")
+@app.route("/functions", methods=["GET", "POST"])
 def functions():
+    if request.method == "POST":
+        user_input = request.form.get('user_input')
+        print(f"User inserted: {user_input}")
+        sketch.plot_sketch_function(user_input)
+
     return render_template("functions.html")
 
 
@@ -39,5 +45,4 @@ def converter():
 
 
 if __name__ == '__main__':
-    #app.run('192.168.1.13', debug=True)
     app.run()
