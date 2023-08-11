@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import static.other.scripts.preprocessing as prep
-import static.other.scripts.sketch_function as sketch
+import static.other.scripts.preprocess_function as prep_func
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ def functions():
     if request.method == "POST":
         user_input = request.form.get('user_input')
         print(f"User inserted: {user_input}")
-        sketch.plot_sketch_function(user_input)
+        prep_func.preprocess_function(user_input)
 
     return render_template("functions.html")
 
